@@ -1,0 +1,9 @@
+{
+  "name": "o6ua6",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:noriaki/o6ua6.git",
+  "author": "Noriaki Uchiyama <uchiyama.noriaki@gmail.com>",
+  "license": "MIT",
+  "private": true
+}

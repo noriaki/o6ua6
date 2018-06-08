@@ -1,9 +1,23 @@
 {
   "name": "o6ua6",
   "version": "0.0.1",
-  "main": "index.js",
+  "private": true,
+  "engines": {
+    "node": "10.x.x"
+  },
+  "main": "pages/index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "next build"
+  },
   "repository": "git@github.com:noriaki/o6ua6.git",
-  "author": "Noriaki Uchiyama <uchiyama.noriaki@gmail.com>",
-  "license": "MIT",
-  "private": true
+  "author": {
+    "name": "Noriaki Uchiyama",
+    "email": "uchiyama.noriaki@gmail.com",
+    "url": "https://github.com/noriaki"
+  },
+  "license": "MIT"
 }

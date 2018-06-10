@@ -14,7 +14,10 @@ const gengoSchema = new Schema({
 });
 
 gengoSchema.pre('validate', function setIdentifier(next) {
-  this.identifier = identifier(this.surface);
+  const nextIdentifier = identifier(this.surface);
+  if (this.identifier !== nextIdentifier) {
+    this.identifier = nextIdentifier;
+  }
   next();
 });
 

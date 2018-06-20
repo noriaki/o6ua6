@@ -8,9 +8,9 @@
   "main": "pages/index.js",
   "scripts": {
     "test": "jest",
-    "dev": "next",
+    "dev": "nodemon -w server -w package.json server/index.js",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "NODE_ENV=production node server/index.js",
     "heroku-postbuild": "next build"
   },
   "repository": "git@github.com:noriaki/o6ua6.git",
@@ -21,17 +21,31 @@
   },
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "glob": "^7.1.2",
+    "japanese": "^1.2.0",
+    "mongoose": "^5.1.4",
+    "mongoose-crudify": "^0.2.0",
     "next": "^6.0.3",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/node": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.0.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.9.1"
+    "eslint-plugin-react": "^7.9.1",
+    "jest": "^23.1.0",
+    "nodemon": "^1.17.5"
   }
 }

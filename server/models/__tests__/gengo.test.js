@@ -1,14 +1,12 @@
-import mongoose from 'mongoose';
+import { connect, disconnect } from '../../db';
 import Gengo from '../gengo';
 
 describe('Gengo model', () => {
-  beforeAll(() => {
-    mongoose.connect('mongodb://localhost:27017/o6ua6_next_test');
-  });
+  beforeAll(() => connect());
 
   afterEach(() => Gengo.remove({}));
 
-  afterAll(() => mongoose.disconnect());
+  afterAll(() => disconnect());
 
   describe('create document', () => {
     it('setting identifier with `surface` in new document', async () => {

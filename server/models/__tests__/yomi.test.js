@@ -1,14 +1,12 @@
-import mongoose from 'mongoose';
+import { connect, disconnect } from '../../db';
 import Yomi from '../yomi';
 
 describe('Yomi model', () => {
-  beforeAll(() => {
-    mongoose.connect('mongodb://localhost:27017/o6ua6_next_test');
-  });
+  beforeAll(() => connect());
 
   afterEach(() => Yomi.remove({}));
 
-  afterAll(() => mongoose.disconnect());
+  afterAll(() => disconnect());
 
   describe('create document', () => {
     it('setting default votingCount to `0`', async () => {

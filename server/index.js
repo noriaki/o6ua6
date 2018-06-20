@@ -5,17 +5,17 @@ const glob = require('glob');
 const nextApp = require('next');
 const { resolve } = require('path');
 
+const { connect } = require('./db');
+
 const server = express();
 const dev = process.env.NODE_ENV !== 'production';
 const app = nextApp({ dev });
 const defaultRequestHandler = app.getRequestHandler();
 
-const DBNAME = 'o6ua6_next_dev';
-const LOCAL_MONGODB_URI = `mongodb://localhost:27017/${DBNAME}`;
-const MONGODB_URI = process.env.MONGODB_URI || LOCAL_MONGODB_URI;
 const PORT = process.env.PORT || 3000;
 
-app.prepare().then(() => {
+// connect -> db(mongo)
+app.prepare().then(() => connect()).then(() => {
   // Parse application/x-www-form-urlencoded
   server.use(bodyParser.urlencoded({ extended: false }));
   // Parse application/json
@@ -30,12 +30,6 @@ app.prepare().then(() => {
     );
     next();
   });
-
-  // MongoDB
-  mongoose.Promise = Promise;
-  mongoose.connect(MONGODB_URI);
-  const db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'mongodb connection error:'));
 
   // API routes
   const rootPath = resolve('..');

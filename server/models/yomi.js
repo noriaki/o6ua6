@@ -5,8 +5,8 @@ const initialOfYomi = require('./concerns/initialOfYomi');
 const { Schema } = mongoose;
 
 const yomiSchema = new Schema({
-  name: { type: String, required: true, unique: true },
-  initial: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
+  initial: { type: String, required: true },
   votingCount: {
     type: Number,
     default: 0,

@@ -30,17 +30,19 @@ Gengo.gengoSchema = gengoSchema;
 // @async
 Gengo.import = function importGengo(list = {}) {
   const gengos = Object.keys(list);
-  const promises = gengos.map((surface) => {
+  const operations = gengos.map((surface) => {
     const yomis = list[surface];
-    const gengo = new this({ surface });
-    gengo.yomi = yomis.map(name => ({ name }));
-    return gengo.save();
+    return {
+      insertOne: {
+        document: { surface, yomi: yomis.map(name => ({ name })) },
+      },
+    };
   });
-  return Promise.all(promises);
+  return this.bulkWrite(operations);
 };
 // @async
 Gengo.importFromFile = function importGengoFromFile() {
-  const filepath = join(__dirname, '..', '..', 'db', 'OnyomiGengoMap.json');
+  const filepath = join(__dirname, '..', '..', 'data', 'OnyomiGengoMap.json');
   const list = JSON.parse(readFileSync(filepath, 'utf8'));
   return this.import(list);
 };

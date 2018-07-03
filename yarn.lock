@@ -4872,6 +4872,12 @@ mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
 
+mongoose-query-random@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/mongoose-query-random/-/mongoose-query-random-1.0.1.tgz#90a6bc65a270d3b66b31958ec6db578685554694"
+  dependencies:
+    random-int-array "^1.0.0"
+
 mongoose@^5.1.4:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.1.4.tgz#eda83a5d81149c8114b6cac5e8b419324f92cc4b"
@@ -5658,6 +5664,10 @@ querystring-es3@^0.2.0:
 querystring@0.2.0, querystring@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
+
+random-int-array@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/random-int-array/-/random-int-array-1.0.0.tgz#1d5bcdaeef1387afe06946af6bfb0451b9de3039"
 
 randomatic@^3.0.0:
   version "3.0.0"

@@ -28,6 +28,7 @@
     "japanese": "^1.2.0",
     "mongoose": "^5.1.4",
     "mongoose-crudify": "^0.2.0",
+    "mongoose-query-random": "^1.0.1",
     "next": "^6.0.3",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",

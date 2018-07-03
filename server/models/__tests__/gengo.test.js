@@ -2,11 +2,17 @@ import { connect, disconnect } from '../../db';
 import Gengo from '../gengo';
 
 describe('Gengo model', () => {
-  beforeAll(() => connect());
+  beforeAll(async () => {
+    await connect();
+  });
 
-  afterEach(() => Gengo.remove({}));
+  afterEach(async () => {
+    await Gengo.remove({});
+  });
 
-  afterAll(() => disconnect());
+  afterAll(async () => {
+    await disconnect();
+  });
 
   describe('create document', () => {
     it('setting identifier with `surface` in new document', async () => {

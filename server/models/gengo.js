@@ -5,6 +5,7 @@ const { yomiSchema } = require('./yomi');
 const Rating = require('./rating');
 
 const identifier = require('./concerns/identifier');
+const random = require('./concerns/findRandom');
 
 const { Schema } = mongoose;
 const { ratingSchema } = Rating;
@@ -26,6 +27,9 @@ gengoSchema.pre('validate', function setIdentifier(next) {
 
 const Gengo = mongoose.model('Gengo', gengoSchema);
 Gengo.gengoSchema = gengoSchema;
+
+// @async
+Gengo.random = random;
 
 // @async
 Gengo.import = function importGengo(list = {}) {

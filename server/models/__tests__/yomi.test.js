@@ -2,11 +2,17 @@ import { connect, disconnect } from '../../db';
 import Yomi from '../yomi';
 
 describe('Yomi model', () => {
-  beforeAll(() => connect());
+  beforeAll(async () => {
+    await connect();
+  });
 
-  afterEach(() => Yomi.remove({}));
+  afterEach(async () => {
+    await Yomi.remove({});
+  });
 
-  afterAll(() => disconnect());
+  afterAll(async () => {
+    await disconnect();
+  });
 
   describe('create document', () => {
     it('setting default votingCount to `0`', async () => {

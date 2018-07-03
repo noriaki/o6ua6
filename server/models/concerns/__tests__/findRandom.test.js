@@ -3,7 +3,9 @@ import Gengo from '../../gengo';
 import identifier from '../identifier';
 
 describe('concerns `findRandom`', () => {
-  beforeAll(() => connect());
+  beforeAll(async () => {
+    await connect();
+  });
 
   beforeEach(async () => {
     /* eslint-disable quote-props */
@@ -17,9 +19,13 @@ describe('concerns `findRandom`', () => {
     await Gengo.import(subjects);
   });
 
-  afterEach(() => Gengo.remove({}));
+  afterEach(async () => {
+    await Gengo.remove({});
+  });
 
-  afterAll(() => disconnect());
+  afterAll(async () => {
+    await disconnect();
+  });
 
   it('returning array of doc, default (limit) 1 doc', async () => {
     const subject = await Gengo.random();

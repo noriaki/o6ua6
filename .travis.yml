@@ -1,0 +1,14 @@
+language: "node_js"
+node_js:
+  - "10.5"
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
+services:
+  - "mongodb"
+before_install:
+  - "export TZ=Asia/Tokyo"
